@@ -1,0 +1,18 @@
+{
+  "name": "platzigram",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Aplicación para compartir fotos basado en la funcionalidad de Instagram",
+  "main": "server.js",
+  "keywords": [
+    "Fotografías",
+    "Platzi",
+    "Curso",
+    "Javascript"
+  ],
+  "author": "Mendoza",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
