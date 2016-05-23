@@ -10,7 +10,13 @@ app.use(express.static('public'));
 /** Rutas */
 app.get('/', function (req, res){
 	res.render('index');
-})
+});
+app.get('/signup', function (req, res){
+	res.render('index');
+});
+app.get('/signin', function (req, res){
+	res.render('index');
+});
 
 app.listen(8080, function(error){
 	if (error) return console.log("Error"), process.exit(1);
