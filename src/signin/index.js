@@ -3,8 +3,8 @@ var empty = require('empty-element');
 var template = require('./template');
 var title = require('title');
 
-page('/signup', function(context, next){
-	title('Platzigram - Signup');
+page('/signin', function(context, next){
+	title('Platzigram - Signin');
 	var main = document.getElementById('main-container');
 	empty(main).appendChild(template);
 });
