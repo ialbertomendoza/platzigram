@@ -13,6 +13,7 @@ page('/', function(context, next){
 				username: 'mendoza',
 				avatar: 'avatar.png'
 			},
+			createdAt: new Date,
 			url: 'office.jpg',
 			likes: 69,
 			liked: false
@@ -22,6 +23,7 @@ page('/', function(context, next){
 				username: 'mendoza',
 				avatar: 'avatar.png'
 			},
+			createdAt: new Date().setDate(new Date().getDate() - 10),
 			url: 'office.jpg',
 			likes: 96,
 			liked: true
