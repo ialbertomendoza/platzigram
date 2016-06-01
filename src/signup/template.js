@@ -25,7 +25,7 @@ var signupForm = yo`<div class="col s12 m7">
 						</div>
 						<div class="row">
 							<div class="login-box">
-								${translate.message('signup.have-account')} <a href="/signin">${translate.message('signup.call-to-action')}</a>
+								${translate.message('signup.have-account')} <a href="/signin">${translate.message('signin')}</a>
 							</div>
 						</div>
 					</div>`;
