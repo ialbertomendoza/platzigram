@@ -1,4 +1,18 @@
 var express = require("express");
+var multer = require("multer");
+var ext = require("file-extension");
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, +Date.now() + '.' + ext(file.originalname));
+  }
+})
+ 
+var upload = multer({ storage: storage }).single('picture');
+
 var app = express();
 
 /** Motor de vistas */
@@ -45,6 +59,15 @@ app.get('/api/pictures', function(req, res, next){
 	setTimeout(function(){
 		res.send(pictures);
 	}, 2000);
+});
+
+app.post('/api/pictures', function(req, res){
+	upload(req, res, function(error){
+		if (error) {
+			return res.send(500, "Error!");
+		}
+		res.send("File uploaded!");
+	})
 });
 
 app.listen(8080, function(error){
