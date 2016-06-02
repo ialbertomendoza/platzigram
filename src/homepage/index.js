@@ -6,13 +6,15 @@ var request = require('superagent');
 var header = require('../header');
 var axios = require('axios');
 
-page('/', header, loadPicturesAxios, function(context, next){
+page('/', header, loadPicturesFetch, function(context, next){
 	title('Platzigram');
 	var main = document.getElementById('main-container');
 	empty(main).appendChild(template(context.pictures));
 })
 
-/*
+/**
+ * Método basado en superagent
+ */
 function loadPictures(context, next){
 	request
 		.get('/api/pictures')
@@ -22,13 +24,33 @@ function loadPictures(context, next){
 			next();
 		});
 }
-*/
 
+/**
+ * Método basado en Axios a base de promesas
+ */
 function loadPicturesAxios(context, next){
 	axios
 		.get('/api/pictures')
 		.then(function(res){
 			context.pictures = res.data;
+			next();
+		})
+		.catch(function(error){
+			console.log(error);
+		});
+}
+
+/**
+ * Método basado en Fetch, funcionalidad nativa en 
+ * algunos navegadores, también a base de promesas.
+ */
+function loadPicturesFetch(context, next){
+	fetch('/api/pictures')
+		.then(function (res) {
+			return res.json();
+		})
+		.then(function (pictures){
+			context.pictures = pictures;
 			next();
 		})
 		.catch(function(error){
