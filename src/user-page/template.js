@@ -19,7 +19,7 @@ export default function userPageTemplate(user){
 			<div class="row">
 				${user.pictures.map(function(picture){
 					return yo`<div class="col s12 m6 l4">
-						<div class="picture-contaiter">
+						<div class="picture-container">
 							<img src="${picture.src}" class="picture" />
 							<div class="likes"><i class="fa fa-heart"></i>${picture.likes}</div>
 						</div>
